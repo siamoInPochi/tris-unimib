@@ -7,6 +7,8 @@ function App() {
     const [player, setPlayer] = useState("X");
 
     function makeMove(row, col) {
+        if (boardStatus[row][col]) return;
+        
         const nextState = [...boardStatus];
         nextState[row][col] = player;
         setPlayer(player === 'X' ? "O" : "X");
