@@ -1,16 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 import Board from "./Board";
 
 function App() {
-    const boardStatus = [['', '', ''],['', '', ''],['', '', '']]
+    const [boardStatus, setBoardStatus ] = useState([['', '', ''],['', '', ''],['', '', '']]);
 
-  return (
+    function makeMove(row, col) {
+        const nextState = [...boardStatus];
+        nextState[row][col] = 'X';
+        setBoardStatus(nextState);
+    }
+
+    return (
     <div className="App">
       <header className="App-header">
           <h2>Tris!</h2>
-          <Board data={boardStatus} />
+          <Board data={boardStatus} onClick={(row, col) => makeMove(row, col)} />
       </header>
     </div>
   );
