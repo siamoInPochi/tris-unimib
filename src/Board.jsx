@@ -1,14 +1,11 @@
 import React from 'react';
 
-export default function Board(){
-    const data = [['', '', ''],['', '', ''],['', '', '']]
-
+export default function Board(props){
     return <table className={"tris-board"}>
         <tbody>
-        { data.map((row, rowIndex) => <tr>
-            {row.map((cell, colInde) => <td></td>)}
+        { props.data.map((row, rowIndex) => <tr>
+            {row.map((cell, colIndex) => <td>{cell}</td>)}
         </tr>) }
-
         </tbody>
     </table>
 }
