@@ -4,10 +4,12 @@ import Board from "./Board";
 
 function App() {
     const [boardStatus, setBoardStatus ] = useState([['', '', ''],['', '', ''],['', '', '']]);
+    const [player, setPlayer] = useState("X");
 
     function makeMove(row, col) {
         const nextState = [...boardStatus];
-        nextState[row][col] = 'X';
+        nextState[row][col] = player;
+        setPlayer(player === 'X' ? "O" : "X");
         setBoardStatus(nextState);
     }
 
