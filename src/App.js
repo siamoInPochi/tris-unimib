@@ -3,9 +3,11 @@ import './App.css';
 import Flags from "./Flags";
 import Button from '@material-ui/core/Button';
 
+//todo: Change page after ok
 //todo: Board
 //todo: Api connection
 //todo: "Multiplayer"
+
 
 function App() {
 
@@ -15,10 +17,8 @@ function App() {
             <h2>Translate!</h2>
         </header>
             <Flags/>
-        <Button variant="contained" color="primary"
-        onClick={()=>""}>
-            OK
-
+        <Button variant="contained" color="primary" onClick={()=>console.log(window.countryCode)}>
+               OK
         </Button>
 
     </div>;

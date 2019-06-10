@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactFlagsSelect from 'react-flags-select';
+import Button from "@material-ui/core/Button";
 
-export default function Flags(){
+export default function Flags() {
   //  onSelectFlag();
 
-    //component render
- //   const countryCode = "IT";
+    const countryCode= window.countryCode;
+    window.countryCode="IT";
     return    <div >
 
     <ReactFlagsSelect
@@ -16,9 +17,10 @@ export default function Flags(){
                                // onClick={() => this.forceUpdate()}
                         //       optionsSize={14}
         //
-                            onSelect={(countryCode)=> console.log(countryCode)}
+                            onSelect={(countryCode)=> window.countryCode=countryCode}
 
     />
+
 
     </div>
 
