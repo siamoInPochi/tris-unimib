@@ -1,28 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import Board from "./Board";
+import Flags from "./Flags";
+import Button from '@material-ui/core/Button';
+
+//todo: Board
+//todo: Api connection
+//todo: "Multiplayer"
 
 function App() {
-    const [boardStatus, setBoardStatus ] = useState([['', '', ''],['', '', ''],['', '', '']]);
-    const [player, setPlayer] = useState("X");
 
-    function makeMove(row, col) {
-        if (boardStatus[row][col]) return;
-        
-        const nextState = [...boardStatus];
-        nextState[row][col] = player;
-        setPlayer(player === 'X' ? "O" : "X");
-        setBoardStatus(nextState);
-    }
 
-    return (
-    <div className="App">
-      <header className="App-header">
-          <h2>Tris!</h2>
-          <Board data={boardStatus} onClick={(row, col) => makeMove(row, col)} />
-      </header>
-    </div>
-  );
+    return <div className="demo-group">
+        <header className="header">
+            <h2>Translate!</h2>
+        </header>
+            <Flags/>
+        <Button variant="contained" color="primary"
+        onClick={()=>""}>
+            OK
+
+        </Button>
+
+    </div>;
 }
 
 export default App;
