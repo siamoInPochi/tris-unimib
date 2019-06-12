@@ -1,7 +1,8 @@
 {
     "version": 2,
     "name": "my-react-app",
-    "builds": [
+    "alias":"my-react-app.germa96.now.sh",
+  "builds": [
         { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
     ],
     "routes": [
