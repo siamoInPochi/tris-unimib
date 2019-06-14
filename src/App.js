@@ -19,6 +19,7 @@ function App() {
             <h2>Translate!</h2>
         </header>
             <Flags/>
+
         <Button variant="contained" color="primary"
                 onClick={()=>{console.log(window.countryCode);
         ReactDOM.render(<Board />, document.getElementById('root'))
