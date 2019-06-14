@@ -45,8 +45,7 @@ export default function ControlledExpansionPanels(props) {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
-                        Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                        maximus est, id dignissim quam.
+                        {testo}
                     </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>

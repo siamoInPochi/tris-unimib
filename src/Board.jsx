@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import ControlledExpansionPanels from "./ControlledExpansionPanels";
 import { setCORS } from "google-translate-api-browser";
+import * as ReactDOM from "react-dom";
 // setting up cors-anywhere server address
 const translate = setCORS("http://cors-anywhere.herokuapp.com/");
 
@@ -13,14 +14,17 @@ const translate = setCORS("http://cors-anywhere.herokuapp.com/");
         this.state = {value: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        const tradotto = "";
+        this.tradotto = "";
     }
-
+nome(){
+        return this.tradotto;
+}
     translateNow (){
         const SelectedLanguage = window.countryCode;
         const text = this.state.value;
         translate(text, {from: 'IT', to: SelectedLanguage}).then(
-            res => { console.log(res.text);
+            res => { //console.log(res.text);
+                this.tradotto = res.text;
                      }).catch(err => {
             console.error(err);
         });
@@ -44,10 +48,12 @@ const translate = setCORS("http://cors-anywhere.herokuapp.com/");
 
 
          <OutlinedInput multiline={true} value={this.state.value} onChange={this.handleChange} />
-            <Button variant="contained" color="primary" onClick={() => this.translateNow()
-            }
+            <Button variant="contained" color="primary"
+                    onClick={() => {this.translateNow();
+                 //   console.log(this.tradotto);
+     ReactDOM.render(<ControlledExpansionPanels testo={this.nome()}/>, document.getElementById('root').appendChild(document.createElement('messaggio')))}}
              href="">
-                OK
+                TRADUCI
             </Button>
 
         </div>
