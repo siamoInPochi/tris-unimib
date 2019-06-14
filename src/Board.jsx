@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactFlagsSelect from 'react-flags-select';
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 
  class Board extends  React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ import TextField from "@material-ui/core/TextField";
                 <h2>Scrivi o Parla!</h2>
             </header>
 
-         <TextField   value={this.state.value} onChange={this.handleChange} />
+         <OutlinedInput multiline={true} value={this.state.value} onChange={this.handleChange} />
             <Button variant="contained" color="primary" onClick={() => console.log(this.state.value)}
              href="">
                 OK
