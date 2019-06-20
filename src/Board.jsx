@@ -20,9 +20,9 @@ nome(){
         return this.tradotto;
 }
     translateNow (){
-        const SelectedLanguage = window.countryCode;
         const text = this.state.value;
-        translate(text, {from: 'IT', to: SelectedLanguage}).then(
+        const SelectedLanguage = window.countryCode;
+            translate(text, {from: 'IT', to: SelectedLanguage}).then(
             res => { //console.log(res.text);
                 this.tradotto = res.text;
                      }).catch(err => {
@@ -49,10 +49,13 @@ nome(){
 
          <OutlinedInput multiline={true} value={this.state.value} onChange={this.handleChange} />
             <Button variant="contained" color="primary"
-                    onClick={() => {this.translateNow();
-                 //   console.log(this.tradotto);
-     ReactDOM.render(<ControlledExpansionPanels testo={this.nome()}/>, document.getElementById('root').appendChild(document.createElement('messaggio')))}}
-             href="">
+                    onClick={ ()=> {
+                        translate(this.state.value, {from: 'IT', to: window.countryCode}).then((res)=>{
+                    console.log(res.text);
+                    ReactDOM.render(<ControlledExpansionPanels testo={res.text}/>,
+                    document.getElementById('root').appendChild(document.createElement('messaggio')))})
+                    }}
+                    href="">
                 TRADUCI
             </Button>
 
